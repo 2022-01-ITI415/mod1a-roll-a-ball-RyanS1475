@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 0;
 
     private Rigidbody rb;
+    private int count;
     private float movementX;
     private float movementY;
 
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        count = 0;
     }
 
     void OnMove(InputValue movementValue)
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Pickup"))
         {
             other.gameObject.SetActive(false);
+            count += 1;
         }
     }
 }
